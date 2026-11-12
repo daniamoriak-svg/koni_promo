@@ -5,76 +5,96 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>КОНИ — Черная пятница в рекламе</title>
 <style>
-  body { margin:0; padding:0; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; }
+  body { background:#b4d653; min-height:100vh; font-family:Verdana,Geneva,sans-serif; overflow-x:hidden; }
   a.btn:hover { background:#000 !important; color:#b2d34f !important; }
+
+  .page { display:flex; align-items:center; justify-content:center; gap:24px; min-height:100vh; padding:24px; max-width:1500px; margin:0 auto; }
+  .left { flex:0 0 auto; position:relative; z-index:2; }
+  .card { box-shadow:0 30px 80px rgba(60,80,10,.25); }
+
+  /* Правая часть: 50% как часть фона, края растворяются */
+  .right { flex:1 1 0; position:relative; align-self:stretch; display:flex; align-items:center; justify-content:center; min-width:0; }
+  .bg50 { width:118%; max-width:900px; margin:0 -9%; display:block;
+    -webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 50%, #000 55%, transparent 100%);
+            mask-image:radial-gradient(ellipse 50% 50% at 50% 50%, #000 55%, transparent 100%); }
+
+  .stage { position:relative; position:sticky; top:0; }
+  /* Плашка со скидкой */
+  .splash { position:absolute; left:50%; bottom:20%; transform:translateX(-50%) rotate(-4deg);
+    background:#f04e23; color:#fff; font-weight:bold; letter-spacing:3px; font-size:14px; line-height:20px;
+    padding:14px 28px; border-radius:40px; text-align:center; white-space:nowrap;
+    box-shadow:0 12px 30px rgba(120,40,0,.25); }
+  .splash b { color:#000; }
+
+  @media (max-width:1100px) {
+    .page { flex-direction:column; }
+    .right { width:100%; order:-1; }
+    .bg50 { width:100%; margin:0; max-width:620px; }
+    .splash { bottom:6%; font-size:12px; letter-spacing:2px; padding:10px 20px; }
+  }
   @media (max-width:660px) {
-    .wrap { width:100% !important; }
+    .page { padding:12px; }
+    .left, .card { width:100% !important; }
     .lead { font-size:10px !important; letter-spacing:1px !important; }
     .sub  { font-size:11px !important; letter-spacing:2px !important; }
   }
 </style>
 </head>
-<body style="margin:0;padding:0;">
-<!-- Ссылка кнопки: замените LINK_URL на нужный адрес -->
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-  <tr>
-    <td align="center" style="padding:24px 12px;">
-      <table role="presentation" class="wrap" width="640" cellpadding="0" cellspacing="0" border="0" style="width:640px;max-width:640px;background:#b2d34f;border-radius:28px;overflow:hidden;border-collapse:separate;">
-        <!-- Логотип -->
-        <tr>
-          <td align="center" style="padding:110px 20px 0;">
-            <img src="images/logo.png" width="240" alt="КОНИ" style="display:block;border:0;width:240px;max-width:70%;height:auto;">
-          </td>
-        </tr>
-        <!-- Подзаголовок -->
-        <tr>
-          <td align="center" class="lead" style="padding:60px 20px 0;font-family:Verdana,Geneva,sans-serif;font-size:12px;line-height:17px;letter-spacing:2px;color:#f04e23;font-weight:bold;">
-            первая в мире <span style="color:#000000;">черная пятница</span> в рекламе<br>
-            от нового креативного агентства внутри BBDO GROUP
-          </td>
-        </tr>
-        <!-- 50% -->
-        <tr>
-          <td align="center" style="padding:0;">
-            <img src="images/fifty.jpg" width="640" alt="Скидка 50%" style="display:block;border:0;width:100%;max-width:640px;height:auto;">
-          </td>
-        </tr>
-        <!-- Описание -->
-        <tr>
-          <td align="center" class="sub" style="padding:0 20px;font-family:Verdana,Geneva,sans-serif;font-size:12px;line-height:17px;letter-spacing:3px;color:#000000;font-weight:bold;">
-            скидка на любую<br>
-            рекламную кампанию<br>
-            в 2026 и 2027
-          </td>
-        </tr>
-        <!-- Кнопка -->
-        <tr>
-          <td align="center" style="padding:60px 20px 0;">
-            <table role="presentation" cellpadding="0" cellspacing="0" border="0">
-              <tr>
-                <td align="center" style="border:1px solid #000000;border-radius:20px;">
-                  <a href="LINK_URL" target="_blank" class="btn"
-                     style="display:inline-block;padding:11px 36px;font-family:Verdana,Geneva,sans-serif;font-size:12px;line-height:16px;letter-spacing:3px;color:#000000;font-weight:bold;text-decoration:none;border-radius:20px;">узнать подробнее</a>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-        <!-- Конь -->
-        <tr>
-          <td align="center" style="padding:40px 0 0;">
-            <img src="images/horse.png" width="110" alt="" style="display:block;border:0;width:110px;height:auto;">
-          </td>
-        </tr>
-        <!-- Legal. Ссылка на правила: замените RULES_URL -->
-        <tr>
-          <td align="center" style="padding:32px 40px 40px;font-family:Verdana,Geneva,sans-serif;font-size:10px;line-height:15px;color:#3d4a17;">
-            Скидка 50% предоставляется новым клиентам агентства «Кони» на&nbsp;первый проект при заключении договора или подписании соответствующего заказа (приложения) в&nbsp;период с&nbsp;27.11.2026 по&nbsp;04.12.2026 включительно. Реализация проектов, оформленных в&nbsp;период проведения акции, осуществляется с&nbsp;01.12.2026 по&nbsp;31.12.2027 включительно в&nbsp;сроки, согласованные сторонами. После 04.12.2026 оформление новых заказов со&nbsp;скидкой в&nbsp;рамках акции не&nbsp;допускается. Скидка распространяется на&nbsp;стоимость работ и&nbsp;услуг агентства с&nbsp;учётом ограничений, предусмотренных Правилами акции. Организатор&nbsp;— ООО&nbsp;«Минт» (ИНН&nbsp;9725136206). Полные условия акции и&nbsp;ограничения&nbsp;— <a href="RULES_URL" target="_blank" style="color:#3d4a17;text-decoration:underline;">Правила акции</a>.
-          </td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
+<body>
+<div class="page">
+  <!-- Слева: рекламный блок (ссылки: LINK_URL, RULES_URL) -->
+  <div class="left">
+    <table role="presentation" class="card" width="640" cellpadding="0" cellspacing="0" border="0" style="width:640px;max-width:100%;background:#b2d34f;border-radius:28px;overflow:hidden;border-collapse:separate;">
+      <tr>
+        <td align="center" style="padding:110px 20px 0;">
+          <img src="images/logo.png" width="240" alt="КОНИ" style="display:block;border:0;width:240px;max-width:70%;height:auto;">
+        </td>
+      </tr>
+      <tr>
+        <td align="center" class="lead" style="padding:60px 20px 0;font-size:12px;line-height:17px;letter-spacing:2px;color:#f04e23;font-weight:bold;">
+          первая в мире <span style="color:#000000;">черная пятница</span> в рекламе<br>
+          от нового креативного агентства внутри BBDO GROUP
+        </td>
+      </tr>
+      <tr>
+        <td align="center" style="padding:0;">
+          <img src="images/fifty.jpg" width="640" alt="Скидка 50%" style="display:block;border:0;width:100%;max-width:640px;height:auto;">
+        </td>
+      </tr>
+      <tr>
+        <td align="center" class="sub" style="padding:0 20px;font-size:12px;line-height:17px;letter-spacing:3px;color:#000000;font-weight:bold;">
+          скидка на любую<br>рекламную кампанию<br>в 2026 и 2027
+        </td>
+      </tr>
+      <tr>
+        <td align="center" style="padding:60px 20px 0;">
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+            <td align="center" style="border:1px solid #000000;border-radius:20px;">
+              <a href="LINK_URL" target="_blank" class="btn" style="display:inline-block;padding:11px 36px;font-size:12px;line-height:16px;letter-spacing:3px;color:#000000;font-weight:bold;text-decoration:none;border-radius:20px;">узнать подробнее</a>
+            </td>
+          </tr></table>
+        </td>
+      </tr>
+      <tr>
+        <td align="center" style="padding:40px 0 0;">
+          <img src="images/horse.png" width="110" alt="" style="display:block;border:0;width:110px;height:auto;">
+        </td>
+      </tr>
+      <tr>
+        <td align="center" style="padding:32px 40px 40px;font-size:10px;line-height:15px;color:#3d4a17;">
+          Скидка 50% предоставляется новым клиентам агентства «Кони» на&nbsp;первый проект при заключении договора или подписании соответствующего заказа (приложения) в&nbsp;период с&nbsp;27.11.2026 по&nbsp;04.12.2026 включительно. Реализация проектов, оформленных в&nbsp;период проведения акции, осуществляется с&nbsp;01.12.2026 по&nbsp;31.12.2027 включительно в&nbsp;сроки, согласованные сторонами. После 04.12.2026 оформление новых заказов со&nbsp;скидкой в&nbsp;рамках акции не&nbsp;допускается. Скидка распространяется на&nbsp;стоимость работ и&nbsp;услуг агентства с&nbsp;учётом ограничений, предусмотренных Правилами акции. Организатор&nbsp;— ООО&nbsp;«Минт» (ИНН&nbsp;9725136206). Полные условия акции и&nbsp;ограничения&nbsp;— <a href="RULES_URL" target="_blank" style="color:#3d4a17;text-decoration:underline;">Правила акции</a>.
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Справа: 50% как часть фона + плашка -->
+  <div class="right" aria-hidden="true">
+    <div class="stage"><img class="bg50" src="images/fifty-bg.webp" alt="">
+    <div class="splash">скидка <b>50%</b> на рекламу · 27.11–04.12</div></div>
+  </div>
+</div>
 </body>
 </html>
