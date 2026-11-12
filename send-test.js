@@ -1,4 +1,4 @@
-// Отправка тестового письма с index.html через Gmail.
+// Отправка тестового письма (по умолчанию email.html) через Gmail.
 // Картинки вкладываются прямо в письмо (CID), хостинг не нужен.
 // Запуск: node --env-file=.env send-test.js
 const fs = require('fs');
@@ -11,7 +11,7 @@ if (!GMAIL_USER || !GMAIL_APP_PASSWORD) {
   process.exit(1);
 }
 
-let html = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');
+let html = fs.readFileSync(path.join(__dirname, process.env.MAIL_FILE || 'email.html'), 'utf8');
 
 // images/xxx.png -> cid:xxx.png + вложение
 const attachments = [];
